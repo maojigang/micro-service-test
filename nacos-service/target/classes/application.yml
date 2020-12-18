@@ -1,0 +1,9 @@
+spring:
+  # 服务逻辑名称
+  application:
+    name: nacos-service
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
