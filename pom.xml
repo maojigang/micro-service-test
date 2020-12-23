@@ -16,8 +16,9 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>nacos-service</module>
-        <module>nacos-service-feign</module>
+        <module>cloud-registry</module>
+        <module>cloud-client</module>
+        <module>cloud-client-feign</module>
     </modules>
 
     <properties>
