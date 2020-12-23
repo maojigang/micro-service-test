@@ -1,9 +1,9 @@
 server:
-  port: 8080
+  port: 8081
 spring:
   # 服务逻辑名称
   application:
-    name: nacos-service
+    name: nacos-service-feign
 
   cloud:
     nacos:
