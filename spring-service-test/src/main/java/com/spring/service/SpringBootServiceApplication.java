@@ -1,17 +1,15 @@
-package com.micro.nacos;
+package com.spring.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * Created by lenovo on 2020/12/18.
  */
 @SpringBootApplication
-@EnableDiscoveryClient
-public class NacosServiceApplication {
+public class SpringBootServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NacosServiceApplication.class, args);
+        SpringApplication.run(SpringBootServiceApplication.class, args);
     }
 }

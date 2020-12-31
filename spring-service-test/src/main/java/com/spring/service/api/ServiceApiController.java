@@ -1,4 +1,4 @@
-package com.micro.nacos.api;
+package com.spring.service.api;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by KH on 2020/12/22.
  */
 @RestController
-public class NaocosServiceApi {
+public class ServiceApiController {
 
-    @RequestMapping("/nacos-service/api/nacosService")
-    public String nacosService(){
-        return "nacos-service";
+    @RequestMapping("/api/testMvc")
+    public String testMvc(){
+        return "testMvc";
     }
 }
