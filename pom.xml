@@ -17,6 +17,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>spring-service-test</module>
+        <module>normal-java-test</module>
     </modules>
 
     <properties>
