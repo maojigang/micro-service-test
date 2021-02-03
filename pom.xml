@@ -18,6 +18,7 @@
     <modules>
         <module>spring-service-test</module>
         <module>normal-java-test</module>
+        <module>springboot-test</module>
     </modules>
 
     <properties>
