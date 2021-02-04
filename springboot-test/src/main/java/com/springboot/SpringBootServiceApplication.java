@@ -1,8 +1,6 @@
 package com.springboot;
 
 import com.springboot.config.BootConfig;
-import com.springboot.config.test.TestDemo;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -19,7 +17,7 @@ public class SpringBootServiceApplication {
         applicationContext.register(BootConfig.class);
         applicationContext.refresh();
 
-        TestDemo bean = applicationContext.getBean(TestDemo.class);
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
 
         System.out.println(0);
 

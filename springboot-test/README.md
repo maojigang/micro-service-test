@@ -8,12 +8,13 @@ AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);
   -> registerBeanDefinition将bean放入map中（beanDefinitionMap）
 
 ### 执行refresh
-prepareBeanFactory
-   -> 添加ApplicationContextAwareProcessor
+prepareBeanFactory  
+   -> 添加ApplicationContextAwareProcessor(为所有实现bean的aware赋值)
 invokeBeanFactoryPostProcessors
    -> 优先注册 ConfigurationClassPostProcessor (会扫描包名下面的所有类)
             |-> 执行  postProcessBeanDefinitionRegistry
                 |-> 扫描包
+                |-> processInterfaces 解析bean注解
                 |-> processImports 导入
                 |-> ImportResource 导入
                     this.reader.loadBeanDefinitions(configClasses); (import解析导入)
@@ -21,6 +22,7 @@ invokeBeanFactoryPostProcessors
                                             |-> loadBeanDefinitionsForBeanMethod
                                             |-> loadBeanDefinitionsFromImportedResources
                                             |-> loadBeanDefinitionsFromRegistrars
+                
    -> beanFactory.getBeanNamesForType                        
    
   
@@ -32,21 +34,20 @@ invokeBeanFactoryPostProcessors
    this.registeredSingletons
    			   
    doCreateBean->
+            -> dependsOn 判断是否有依赖
             -> createBeanInstance(创建)
             -> applyMergedBeanDefinitionPostProcessors  调用实现 MergedBeanDefinitionPostProcessor 的方法 postProcessMergedBeanDefinition
             -> populateBean 
             -> initializeBean 调用实现 BeanPostProcessor
                     |->  invokeAwareMethods (如果bean实现了 
-                                        BeanNameAware、
-                                        BeanClassLoaderAware、
-                                        BeanFactoryAware、
-                                        ApplicationContextAware、
-                                        MessageSourceAware 会调用对应的方法)
+                                            BeanNameAware、
+                                            BeanClassLoaderAware、
+                                            BeanFactoryAware、
+                                            ApplicationContextAware、
+                                            MessageSourceAware 会调用对应的方法)
                     |-> postProcessBeforeInitialization
-                                        同上有此操作
-                                   
+                                        同上有此操作             
                     |-> invokeInitMethods 
-                    
                     |-> postProcessAfterInitialization
                             如果bean实现了ApplicationListener会加入applicationContext中
  - - - - -   
