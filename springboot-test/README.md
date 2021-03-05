@@ -11,8 +11,8 @@ AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);
 prepareBeanFactory  
    -> 添加ApplicationContextAwareProcessor(为所有实现bean的aware赋值)
 invokeBeanFactoryPostProcessors
-   -> 优先注册 ConfigurationClassPostProcessor (会扫描包名下面的所有类)
-            |-> 执行  postProcessBeanDefinitionRegistry
+   -> 优先注册 ConfigurationClassPostProcessor (会扫描包名下面的所有类，将解析的类放入configClasses中)
+            |-> 执行  postProcessBeanDefinitionRegistry (主要方法[invokeBeanDefinitionRegistryPostProcessors])
                 |-> 扫描包
                 |-> processInterfaces 解析bean注解
                 |-> processImports 导入
@@ -22,6 +22,8 @@ invokeBeanFactoryPostProcessors
                                             |-> loadBeanDefinitionsForBeanMethod
                                             |-> loadBeanDefinitionsFromImportedResources
                                             |-> loadBeanDefinitionsFromRegistrars
+                      (加载Resource) loadBeanDefinitionsFromImportedResources(configClass.getImportedResources());
+                	  (加载Import) loadBeanDefinitionsFromRegistrars(configClass.getImportBeanDefinitionRegistrars());
                 
    -> beanFactory.getBeanNamesForType                        
    
