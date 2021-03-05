@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9090/eureka/
+
+spring:
+  application:
+    name: cloud-api
+
+zuul:
+  routes:
+    user:
+      path: /cloud-client-feign/**
+      service-id: cloud-client-feign

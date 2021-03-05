@@ -1,0 +1,19 @@
+server:
+  port: 8089
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9090/eureka/
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: cloud-client-feign
+        uri: lb://cloud-client-feign
+        predicates:
+        - Path=/cloud-client-feign/**
+

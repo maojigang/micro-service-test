@@ -19,6 +19,8 @@
         <module>cloud-registry</module>
         <module>cloud-client</module>
         <module>cloud-client-feign</module>
+        <module>cloud-api</module>
+        <module>cloud-gateway</module>
     </modules>
 
     <properties>
