@@ -12,6 +12,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class CloudGateWayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CloudGateWayApplication.class, args);
+        try {
+            SpringApplication.run(CloudGateWayApplication.class, args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
