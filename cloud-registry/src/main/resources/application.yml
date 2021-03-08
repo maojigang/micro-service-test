@@ -9,6 +9,8 @@ eureka:
     fetchRegistry: false
   instance:
     hostname: 127.0.0.1
+  server:
+    enableSelfPreservation: false
 
 spring:
   application:
