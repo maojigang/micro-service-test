@@ -54,7 +54,12 @@ invokeBeanFactoryPostProcessors
                             如果bean实现了ApplicationListener会加入applicationContext中
  - - - - -   
  
+ 判断（full or liter [Component、ComponentScan、Import、ImportResource]）
+       ConfigurationClassUtils.isConfigurationCandidate(memberClass.getMetadata())
+ 针对@Configuration中的bean生成代理对象enhanceConfigurationClasses
  
+ parser.parse(candidates) 中 processDeferredImportSelectors -> grouping.getImports()
+        getCandidateConfigurations 去加载spring.factories
 ### 小标注
     ComponentScanAnnotationParser  解析扫描类
                            
