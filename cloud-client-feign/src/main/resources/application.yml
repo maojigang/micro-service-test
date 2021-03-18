@@ -9,3 +9,7 @@ eureka:
 spring:
   application:
     name: cloud-client-feign
+feign:
+  hystrix:
+    enabled: true
+

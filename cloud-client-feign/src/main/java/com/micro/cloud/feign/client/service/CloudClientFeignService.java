@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Created by KH on 2020/12/22.
  */
-@FeignClient(name = "cloud-client")
+@FeignClient(name = "cloud-client",fallback = FailBackService.class)
 public interface CloudClientFeignService {
 
     @RequestMapping("/cloud-client/api/cloudClient")
