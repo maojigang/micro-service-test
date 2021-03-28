@@ -1,0 +1,15 @@
+server:
+  port: 8089
+spring:
+  # 服务逻辑名称
+  application:
+    name: dubbo-client
+
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  application:
+    name: zk-dubbo-client
+  protocol:
+    name: dubbo
+    port: 20880

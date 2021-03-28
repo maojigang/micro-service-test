@@ -1,0 +1,15 @@
+server:
+  port: 8088
+spring:
+  # 服务逻辑名称
+  application:
+    name: dubbo-client-feign
+
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  application:
+    name: zk-dubbo-client-feign
+  protocol:
+    name: dubbo
+    port: 20881

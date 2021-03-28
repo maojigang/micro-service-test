@@ -1,9 +1,0 @@
-server:
-  port: 8080
-spring:
-  # 服务逻辑名称
-  application:
-    name: spring-boot-test
-
-testabc:
-  a: abc
