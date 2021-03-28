@@ -15,3 +15,6 @@ zuul:
     user:
       path: /cloud-client-feign/**
       service-id: cloud-client-feign
+    user2:
+      path: /cloud-client/**
+      service-id: cloud-client
